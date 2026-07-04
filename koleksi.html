@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="id" style="" class="overflow-x-hidden w-full max-w-[100vw]"><head><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Koleksi - MoodPatch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f8efea",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fbf2ed",
+                        "outline": "#82746b",
+                        "on-background": "#1f1b18",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#c1e9f3",
+                        "secondary-fixed-dim": "#ddc39b",
+                        "antique-gold": "#C5A059",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#613f23",
+                        "on-secondary-container": "#766140",
+                        "primary-fixed-dim": "#edbd97",
+                        "primary-fixed": "#ffdcc2",
+                        "on-secondary-fixed-variant": "#564426",
+                        "tertiary": "#002228",
+                        "surface-container": "#f5ece7",
+                        "outline-variant": "#d4c3b9",
+                        "surface-bright": "#fff8f5",
+                        "surface-container-high": "#f0e6e2",
+                        "secondary": "#6f5b3b",
+                        "clay-earth": "#8B5E3C",
+                        "warm-linen": "#F9F3E9",
+                        "on-tertiary-container": "#7aa1ab",
+                        "on-secondary-fixed": "#271902",
+                        "on-primary-container": "#bf926f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#7b5638",
+                        "tertiary-container": "#0c3840",
+                        "tertiary-fixed-dim": "#a5cdd7",
+                        "surface-variant": "#eae1dc",
+                        "surface": "#fff8f5",
+                        "on-primary-fixed": "#2e1500",
+                        "on-tertiary-fixed-variant": "#254c55",
+                        "primary": "#311701",
+                        "secondary-container": "#fbdfb5",
+                        "surface-dim": "#e1d8d4",
+                        "on-surface-variant": "#50453d",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#4a2c11",
+                        "inverse-primary": "#edbd97",
+                        "surface-container-highest": "#eae1dc",
+                        "on-surface": "#1f1b18",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001f25",
+                        "background": "#fff8f5",
+                        "secondary-fixed": "#fbdfb5",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#342f2d",
+                        "ink-charcoal": "#1F1A17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "label-sm": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-display": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style class="">
+        body {
+            background-color: #fff8f5; /* Using the background color from theme */
+            color: #1f1b18; /* on-background */
+        }
+        
+        /* Ripple Effect Styles */
+        .ripple-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 600ms linear;
+            background-color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+        }
+        .ripple-dark {
+            background-color: rgba(49, 23, 1, 0.15);
+        }
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    
+        .btn-float-hover:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(197, 160, 89, 0.4);
+        }
+        </style>
+</head>
+<body class="w-full max-w-[100vw] overflow-x-hidden bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-background/95 backdrop-blur-md shadow-[0_4px_20px_rgba(74,44,17,0.06)] sticky top-0 z-50 w-full transition-all duration-300 border-b border-primary/5" id="main-header">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-4 h-[60px] md:h-[80px] max-w-container-max mx-auto relative">
+<!-- Brand Logo -->
+<a class="flex items-center flex-shrink-0 md:-ml-20" href="index.html">
+<img loading="lazy" alt="MoodPatch Logo" class="h-8 md:h-10 w-auto max-w-[150px] md:max-w-none object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden items-center space-x-10 lg:flex absolute left-1/2 -translate-x-1/2">
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="index.html">Beranda
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+<a class="relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 group text-primary" href="koleksi.html">Koleksi
+      <span class="absolute bottom-0 left-0 w-full h-[2px] bg-primary transition-all duration-300"></span></a>
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="#">Mengapa MoodPatch
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="tentang-kami.html">Tentang Kami
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+</div>
+<!-- Trailing Action -->
+<div class="flex items-center space-x-0 md:space-x-1 flex-shrink-0">
+<button aria-label="Account" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">person</span>
+</button>
+<button aria-label="Cart" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">shopping_cart</span>
+</button>
+<button aria-label="Open Menu" class="text-on-surface-variant hover:text-clay-earth transition-colors p-2 flex items-center justify-center lg:hidden" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-[80px] md:py-[120px] space-y-[80px] md:space-y-[120px] bg-background" style="background-image: radial-gradient(circle, rgba(123, 86, 56, 0.03) 0%, transparent 70%);">
+<!-- Hero Section -->
+<section class="text-center max-w-3xl mx-auto space-y-6">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-display md:text-headline-display text-primary">Koleksi Suara Kedamaian</h1>
+<p class="font-body-md text-body-md md:font-body-lg md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Temukan harmoni dan ketenangan melalui kurasi eksklusif rekaman Gamelan kami. Setiap komposisi dirancang dengan cermat untuk menemani momen meditasi, relaksasi, atau pencarian fokus Anda, membawa esensi 'Alus' langsung ke telinga Anda.
+            </p>
+</section>
+<!-- Product Grid -->
+<section>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img loading="lazy" alt="Bima Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/bima-series.jpg">
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Bima Series</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+Focus - Teteg ing Tujuan
+</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img loading="lazy" alt="Arjuna Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/arjuna-series.jpg">
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Arjuna Series</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+Relax - Lega Ing Rasa
+</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img loading="lazy" alt="Semar Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/semar-series.jpg">
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Semar Series</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+Calm - Tentrem ing Manah
+</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img loading="lazy" alt="Srikandi Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/srikandi-series.jpg">
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Srikandi Series</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+Energy - Semangat Tanpa Wates
+</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-primary/10">
+<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container w-full border-t border-primary/15">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto gap-gutter">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md text-clay-earth font-medium">MoodPatch</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Membawa ketenangan 'Alus' ke dalam keseharian Anda melalui pelestarian dan kurasi sonik Gamelan tradisional.
+                </p>
+</div>
+<div class="flex flex-col space-y-2">
+<h4 class="font-label-md text-label-md text-primary mb-2 uppercase tracking-widest">Tautan</h4>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="index.html">Home</a>
+<a class="text-primary font-body-md text-body-md font-bold hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="koleksi.html">Collections</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="#">Why MoodPatch</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="tentang-kami.html">Our Story</a>
+</div>
+<div class="w-full md:w-auto pt-8 md:pt-0 mt-8 md:mt-0 border-t border-primary/10 md:border-none flex items-end">
+<span class="font-body-md text-body-md text-on-surface-variant">© 2024 MoodPatch. Alus, Sabar, Tentrem.</span>
+</div>
+</div>
+</footer>
+<script class="">
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ripple Effect Logic
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement('span');
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+                circle.classList.add('ripple');
+                
+                if (!button.classList.contains('bg-primary') && !button.classList.contains('bg-antique-gold')) {
+                    circle.classList.add('ripple-dark');
+                }
+
+                const existingRipple = button.querySelector('.ripple');
+                if (existingRipple) {
+                    existingRipple.remove();
+                }
+
+                button.appendChild(circle);
+            }
+
+            const rippleButtons = document.querySelectorAll('.ripple-btn');
+            rippleButtons.forEach(btn => {
+                btn.addEventListener('click', createRipple);
+            });
+        });
+    </script>
+
+
+
+<!-- UNIFIED MOBILE MENU -->
+<div class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-ink-charcoal/20 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
+<!-- Drawer Content -->
+<div class="absolute top-0 right-0 h-full bg-surface shadow-2xl flex flex-col p-8 transform translate-x-full transition-transform duration-300 ease-out w-[80%] max-w-[320px] border-l border-primary/10" id="mobile-drawer-content">
+<div class="flex justify-end mb-8">
+<img loading="lazy" alt="MoodPatch Logo" class="h-8 w-auto object-contain mr-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+<button class="p-2 text-clay-earth" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col space-y-6">
+<a class="text-primary font-headline-md text-2xl border-b border-primary/5 py-4 relative group block hover:text-clay-earth" href="index.html">Beranda</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="koleksi.html">Koleksi</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="#">Mengapa MoodPatch</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="tentang-kami.html">Tentang Kami</a>

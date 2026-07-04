@@ -1,0 +1,636 @@
+<!DOCTYPE html><html class="overflow-x-hidden w-full max-w-[100vw] light" lang="id" style="">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MoodPatch: Javanese Gamelan Relaxation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f8efea",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fbf2ed",
+                        "outline": "#82746b",
+                        "on-background": "#1f1b18",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#c1e9f3",
+                        "secondary-fixed-dim": "#ddc39b",
+                        "antique-gold": "#C5A059",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#613f23",
+                        "on-secondary-container": "#766140",
+                        "primary-fixed-dim": "#edbd97",
+                        "primary-fixed": "#ffdcc2",
+                        "on-secondary-fixed-variant": "#564426",
+                        "tertiary": "#002228",
+                        "surface-container": "#f5ece7",
+                        "outline-variant": "#d4c3b9",
+                        "surface-bright": "#fff8f5",
+                        "surface-container-high": "#f0e6e2",
+                        "secondary": "#6f5b3b",
+                        "clay-earth": "#8B5E3C",
+                        "warm-linen": "#F9F3E9",
+                        "on-tertiary-container": "#7aa1ab",
+                        "on-secondary-fixed": "#271902",
+                        "on-primary-container": "#bf926f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#7b5638",
+                        "tertiary-container": "#0c3840",
+                        "tertiary-fixed-dim": "#a5cdd7",
+                        "surface-variant": "#eae1dc",
+                        "surface": "#fff8f5",
+                        "on-primary-fixed": "#2e1500",
+                        "on-tertiary-fixed-variant": "#254c55",
+                        "primary": "#311701",
+                        "secondary-container": "#fbdfb5",
+                        "surface-dim": "#e1d8d4",
+                        "on-surface-variant": "#50453d",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#4a2c11",
+                        "inverse-primary": "#edbd97",
+                        "surface-container-highest": "#eae1dc",
+                        "on-surface": "#1f1b18",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001f25",
+                        "background": "#fff8f5",
+                        "secondary-fixed": "#fbdfb5",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#342f2d",
+                        "ink-charcoal": "#1F1A17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "label-sm": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-display": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-animate {
+            animation: heroFadeInUp 1s ease-out forwards;
+        }
+        
+        .hero-animate-delay-1 {
+            animation: heroFadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-animate-delay-2 {
+            animation: heroFadeInUp 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        @keyframes heroFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ripple Effect Styles */
+        .ripple-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 600ms linear;
+            background-color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+        }
+        .ripple-dark {
+            background-color: rgba(49, 23, 1, 0.15); /* primary color tint */
+        }
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    
+        .btn-float-hover:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(197, 160, 89, 0.4);
+        }
+        </style>
+</head>
+<body class="w-full max-w-[100vw] overflow-x-hidden font-body-md text-body-md antialiased selection:bg-antique-gold/20 selection:text-primary">
+<!-- Reviews Sidebar Toggle -->
+<button class="fixed left-0 top-1/2 -translate-y-1/2 bg-primary text-on-primary z-[50] rounded-r-lg shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:ml-1 active:scale-95 ripple-btn flex flex-col items-center gap-2 group py-3 px-1.5 sm:py-4 sm:px-2" id="reviews-toggle">
+<span class="material-symbols-outlined text-sm group-hover:text-antique-gold transition-colors">star</span>
+<span class="font-label-md tracking-widest group-hover:text-antique-gold transition-colors" style="writing-mode: vertical-rl; transform: rotate(180deg);">Reviews</span>
+</button>
+<div class="fixed top-0 left-0 h-full max-w-full bg-surface border-r border-primary/10 z-[60] flex flex-col shadow-2xl overflow-y-auto transform -translate-x-full transition-transform duration-300 w-full sm:w-[350px]" id="reviews-sidebar">
+<div class="p-6 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary">Our Reviews</h2>
+<button class="text-primary hover:text-antique-gold hover:scale-110 active:scale-95 transition-all duration-300" id="reviews-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">5.0</span>
+<div class="flex text-antique-gold">
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-on-surface-variant text-xs font-label-sm">7 reviews</span>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-sm text-xs rounded hover:bg-primary/90 hover:scale-105 transition-all duration-300 active:scale-95 shadow-sm">Write a review</button>
+</div>
+<div class="flex justify-end items-center gap-2 border-b border-primary/5 pb-4">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-label-sm">Sort by:</span>
+<select class="bg-transparent border-none text-xs font-label-md text-primary focus:ring-0 p-0 cursor-pointer transition-colors hover:text-antique-gold">
+<option>Most Relevant</option>
+<option>Newest</option>
+<option>Highest Rating</option>
+</select>
+</div>
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-2 group cursor-pointer hover:bg-surface-container-low p-2 -mx-2 rounded transition-all duration-300 active:scale-[0.98]">
+<div class="flex justify-between">
+<div class="flex text-antique-gold">
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-label-sm">Apr 16, 2024</span>
+</div>
+<p class="font-bold text-primary text-sm font-label-md group-hover:text-antique-gold transition-colors duration-300">Acell</p>
+<p class="text-on-surface-variant text-sm font-body-md italic">"Suaranya sangat jernih dan menenangkan. Benar-benar membantu saya untuk fokus saat meditasi pagi."</p>
+<div class="flex justify-end mt-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant hover:text-antique-gold hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer">thumb_up</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 border-t border-primary/5 pt-6 group cursor-pointer hover:bg-surface-container-low p-2 -mx-2 rounded transition-all duration-300 active:scale-[0.98]">
+<div class="flex justify-between">
+<div class="flex text-antique-gold">
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-label-sm">May 29, 2024</span>
+</div>
+<p class="font-bold text-primary text-sm font-label-md group-hover:text-antique-gold transition-colors duration-300">Anonymous</p>
+<p class="text-on-surface-variant text-sm font-body-md italic">"Sangat otentik. Terasa seperti berada di pendopo sungguhan. Packaging digitalnya juga sangat intuitif."</p>
+<div class="flex justify-end mt-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant hover:text-antique-gold hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer">thumb_up</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 border-t border-primary/5 pt-6 group cursor-pointer hover:bg-surface-container-low p-2 -mx-2 rounded transition-all duration-300 active:scale-[0.98]">
+<div class="flex justify-between">
+<div class="flex text-antique-gold">
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined !text-xs" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-label-sm">Jun 10, 2024</span>
+</div>
+<p class="font-bold text-primary text-sm font-label-md group-hover:text-antique-gold transition-colors duration-300">Budi Santoso</p>
+<p class="text-on-surface-variant text-sm font-body-md italic">"Kualitas audionya luar biasa. Pelog Harmoni favorit saya untuk melepas penat setelah bekerja."</p>
+<div class="flex justify-end mt-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant hover:text-antique-gold hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer">thumb_up</span>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center pb-8">
+<p class="text-[10px] text-on-surface-variant uppercase font-label-sm">Powered by <span class="font-bold">MoodPatch Community</span></p>
+</div>
+</div>
+</div>
+<!-- Top Announcement Bar -->
+<!-- Navigation (TopAppBar) -->
+<nav class="bg-background/95 backdrop-blur-md shadow-[0_4px_20px_rgba(74,44,17,0.06)] sticky top-0 z-50 w-full transition-all duration-300 border-b border-primary/5" id="main-header">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-4 h-[60px] md:h-[80px] max-w-container-max mx-auto relative">
+<!-- Brand Logo -->
+<a class="flex items-center flex-shrink-0 md:-ml-20" href="index.html">
+<img loading="lazy" alt="MoodPatch Logo" class="h-8 md:h-10 w-auto max-w-[150px] md:max-w-none object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+</a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden items-center space-x-10 lg:flex absolute left-1/2 -translate-x-1/2">
+<a class="relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 group text-primary" href="index.html">Beranda
+      <span class="absolute bottom-0 left-0 w-full h-[2px] bg-primary transition-all duration-300"></span></a>
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="koleksi.html">Koleksi
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="#">Mengapa MoodPatch
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="tentang-kami.html">Tentang Kami
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
+</div>
+<!-- Trailing Action -->
+<div class="flex items-center space-x-0 md:space-x-1 flex-shrink-0">
+<button aria-label="Account" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">person</span>
+</button>
+<button aria-label="Cart" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">shopping_cart</span>
+</button>
+<button aria-label="Open Menu" class="text-on-surface-variant hover:text-clay-earth transition-colors p-2 flex items-center justify-center lg:hidden" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-[22px] md:text-[24px]">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 w-full h-full">
+<img loading="lazy" alt="Javanese Gamelan Instruments in a traditional pavilion" class="w-full h-full object-cover" data-alt="A serene, high-quality, cinematic wide shot of traditional Javanese Gamelan instruments, specifically the Bonang and Gong, set inside an open-air wooden pavilion (Pendopo). Lush tropical greenery is visible in the softly blurred background, illuminated by warm, golden hour sunlight filtering through the structure. The mood is tranquil, deeply cultural, and premium, perfectly matching a modern-traditionalist design aesthetic with a color palette dominated by deep browns, warm woods, and vibrant natural greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbdKrPLuLkbgp_8nCer99osuQfknOJwq4L3qJ6BdbfH8Ynwimsh8ZWpWfHW5KgYkaF2WghnPnoh7fXi9M5WC6aKMq3vILoM6nYqbxXbRm3IhNoXhi5euPfHiJ1_0SBNAcXhrRx2U_aWTNouE4Gcsa4HTJm8Tt0LwA6-NOGpHL9_TdFXzOoar57a9OQh1ysecVVt2pm-ZWUQhVSuelOlkXMLUTiZ4g1W6GhmehelBQ0czgh7mm1GjauH7hiUyrkCyymcth3TUPxhdcg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto flex flex-col items-center gap-6 mt-20 md:mt-0">
+<h1 class="font-headline-display text-headline-display text-on-primary drop-shadow-lg hero-animate">
+                MoodPatch: Javanese Gamelan Relaxation
+            </h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-xl drop-shadow-md hero-animate-delay-1">
+                Harmonisasi tradisi Jawa untuk ketenangan jiwa yang modern.
+            </p>
+<a class="mt-4 px-8 py-3 bg-antique-gold text-on-primary font-label-md text-label-md rounded hover:bg-antique-gold/90 hover:scale-105 transition-all duration-300 shadow-[0_4px_20px_rgba(197,160,89,0.3)] ripple-btn active:scale-95 hero-animate-delay-2 btn-float-hover" href="#">
+                Jelajahi Koleksi
+            <span class="ripple" style="height: 176px; width: 176px; left: -31.8646px; top: -60.1667px;"></span></a>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low relative reveal active">
+<!-- Decorative subtle pattern -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, theme('colors.primary') 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Ketenangan Tanpa Batas</h2>
+<div class="w-16 h-1 bg-antique-gold mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="bg-warm-linen p-8 rounded-xl border border-primary/10 text-center hover:bg-surface-container hover:scale-105 transition-all duration-300 group reveal active" style="transition-delay: 100ms;">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 0;">nature</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Suara Alami</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tanpa kompresi berlebih, menjaga resonansi asli instrumen.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-warm-linen p-8 rounded-xl border border-primary/10 text-center hover:bg-surface-container hover:scale-105 transition-all duration-300 group reveal active" style="transition-delay: 200ms;">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 0;">history_edu</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Tradisi Murni</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Rekaman langsung dari maestro Gamelan berpengalaman.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-warm-linen p-8 rounded-xl border border-primary/10 text-center hover:bg-surface-container hover:scale-105 transition-all duration-300 group reveal active" style="transition-delay: 300ms;">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 0;">self_improvement</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Kedamaian Pikiran</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Didesain khusus untuk memfasilitasi meditasi dan relaksasi mendalam.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface reveal active">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Koleksi Terpilih</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rangkaian suara untuk setiap momen ketenangan Anda.</p>
+</div>
+<a class="hidden md:flex items-center gap-2 font-label-md text-label-md text-antique-gold hover:text-primary hover:scale-105 transition-all duration-300 ripple-btn active:scale-95" href="#">
+                    Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product 1 -->
+<div class="group cursor-pointer reveal active hover:scale-[1.02] active:scale-95 transition-all duration-300" style="transition-delay: 100ms;">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 relative bg-surface-variant">
+<div class="w-full h-full bg-gradient-to-br from-secondary-fixed-dim to-primary-container opacity-20 absolute inset-0 z-0"></div>
+<img loading="lazy" alt="Gamelan Slendro Meditasi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10 mix-blend-multiply" data-alt="Abstract macro photography of a brass Gamelan instrument component, likely a bonang pot, reflecting warm, soft light. The image should have a serene, minimalist composition, focusing on the curved, polished metal surface against a muted, dark background. The color palette emphasizes rich golds, deep amber, and shadows, evoking a sense of calm, premium quality, and traditional craftsmanship suitable for a relaxation product cover." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPXHGQVPbePPStdgJLDQouiHEf4hsQl4nxpIqgVQwXbegnScE8g0dW1IP_oy2wImp1ioynG44SVJFsXT7gd0RKqR6WdyDy7VK-SpbECl8uvlWv6hsSHIbwEPt3mFIpEK318D-_gvEZSHeEztb4cfpjCN4WgB_e6wBVxKSu4r5AXdSMzjWkbmRkdyrA2CQG9-RYs3XxvNxUoVrBajULgMcugFSZX_MfBn0Sf1Pv8Ek-J3WpWPYL5qOr2Cjaf1w-GYy2qWcZa4C_3YWw">
+<!-- Play overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+<div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-antique-gold uppercase tracking-widest">Meditasi Fokus</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-antique-gold transition-colors duration-300">Gamelan Slendro Meditasi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Laras Slendro yang membangkitkan semangat dan fokus.</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer reveal active hover:scale-[1.02] active:scale-95 transition-all duration-300" style="transition-delay: 200ms;">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 relative bg-surface-variant">
+<div class="w-full h-full bg-gradient-to-br from-tertiary-fixed-dim to-tertiary-container opacity-20 absolute inset-0 z-0"></div>
+<img loading="lazy" alt="Pebalutan Gamelan Malam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10 mix-blend-multiply" data-alt="A moody, atmospheric image of incense smoke curling gracefully upward in a dimly lit, traditional space. The lighting is very soft and low-key, with subtle hints of warm wood and shadows in the background, suggesting a quiet night setting. The style is serene and meditative, utilizing a color palette of deep charcoal, soft greys, and faint warm glows to convey deep relaxation and nighttime calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXc7lSDoFOQEhamiVfOEi85tuxRqpll7yojIsePLLwveZhjbptdQ3RnN9qCsLty5n3pQPsQ-QanRX5UQKF6Te6PBdppOqaAGc4HuWx8DdTYtVZ5wDO9PoeG54tyODtY0D19d6J7N4d19AEVh2_KtjwTMzb79CZgBMqU6irGOkCx3_6fHmt3LtpktPZLutm1gHgwou2Fnux6oXvtfB3zTGMoIFTQR7wUMVNfRt73TAqsshvWwH1FM5NA8ojp18L06lRlABvO5p2pMct">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+<div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-antique-gold uppercase tracking-widest">Tidur Pulas</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-antique-gold transition-colors duration-300">Pebalutan Gamelan Malam</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Frekuensi rendah untuk mengantar Anda menuju tidur lelap.</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer reveal active hover:scale-[1.02] active:scale-95 transition-all duration-300" style="transition-delay: 300ms;">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 relative bg-surface-variant">
+<div class="w-full h-full bg-gradient-to-br from-surface-tint to-primary-container opacity-20 absolute inset-0 z-0"></div>
+<img loading="lazy" alt="Suara Suling Menenangkan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10 mix-blend-multiply" data-alt="A close-up, artistic shot of a traditional bamboo flute (Suling) resting on a textured woven mat. Natural, diffused daylight highlights the organic texture of the bamboo and the intricate binding details. The scene is styled to look peaceful and grounded, using earthy tones of warm beige, light brown, and soft green accents. The overall aesthetic is organic, natural, and soothing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtLW6xavDWMYM-wwmi1KDBue7wDTYaoXmnWXQFAkvPxQ4BBReQRtOrdXB18j2lm8WXJIFd696i_NqDPORaNMlZgHLphLOiMyI1p3Q5XCVRQMu3jY8gHhpWnZ3aHhdkVXvPelYZm8W8dhtCLsbSKBP2sVjL02b7uiV_kRVIUz7JI33dEUyWhr8MPxZ0kRdV6gCEeDpDmSzaUERp8o1gkFPclUijuWOhhsh0uzb7L-VG2hycvmcjhGf-Do3aWN6l44Yl6oBBRyAlLKGu">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+<div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-antique-gold uppercase tracking-widest">Relaksasi Siang</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-antique-gold transition-colors duration-300">Suara Suling Menenangkan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Melodi bambu ringan untuk melepas penat di tengah hari.</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer reveal active hover:scale-[1.02] active:scale-95 transition-all duration-300" style="transition-delay: 400ms;">
+<div class="aspect-square rounded-xl overflow-hidden mb-4 relative bg-surface-variant">
+<div class="w-full h-full bg-gradient-to-br from-primary-fixed to-secondary-container opacity-20 absolute inset-0 z-0"></div>
+<img loading="lazy" alt="Gamelan Pelog Harmoni" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10 mix-blend-multiply" data-alt="A serene landscape view of a misty sunrise over terraced rice fields in Java, Indonesia. The light is soft, warm, and ethereal, casting long shadows and highlighting the lush green contours of the land. This image serves as a visual metaphor for harmony and balance. The color palette features soft pastel morning skies, misty whites, and vibrant, natural greens, conveying a sense of vast peace and emotional balance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVbRuemn8nJALLTDCeEMaj23yrm-A5CuZYZZc8kzctOabrsjqO-UysrQXYbc-Iyb0ZwxdYomOZ-Zl9kUiPfhE2pVr-OVY6eV8pGIs1BS-gLhP86_nqbm6Tk4E4m9JWQV0ZvddQonfsdty6Ai36uHSRt4gn_bcfbpABYccKmzikybrHeXpFaz9VOZkBSasR6lxbcVkSNl73dRSLOijJZUMcoPm6cObDFP9m7311fVlYXfcaaQU-cpmD1PuySuKxkpUK93eU5xvZ5gdo">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+<div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-antique-gold uppercase tracking-widest">Keseimbangan Emosi</span>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-antique-gold transition-colors duration-300">Gamelan Pelog Harmoni</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Tangga nada Pelog yang megah untuk menyeimbangkan emosi.</p>
+</div>
+</div>
+</div>
+<a class="md:hidden mt-8 block text-center py-3 border border-primary/20 rounded font-label-md text-label-md text-primary hover:bg-surface-variant hover:scale-105 transition-all duration-300 ripple-btn active:scale-95" href="#">
+                Lihat Semua Koleksi
+            </a>
+</div>
+</section>
+<!-- Story Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-warm-linen relative overflow-hidden reveal active">
+<!-- Abstract decorative element -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMTE3MDEiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxMTcwMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+')] bg-repeat opacity-5 mix-blend-multiply pointer-events-none" style="background-size: 400px; transform: rotate(-15deg) scale(1.5);"></div>
+<div class="max-w-container-max mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+<div class="w-full md:w-1/2 order-2 md:order-1">
+<div class="aspect-[4/5] rounded-xl overflow-hidden relative shadow-[0_8px_30px_rgba(74,44,17,0.12)] reveal active hover:scale-[1.02] transition-transform duration-500" style="transition-delay: 200ms;">
+<img loading="lazy" alt="Person meditating with headphones" class="w-full h-full object-cover" data-alt="A calm, modern individual meditating in a bright, minimalist room while wearing high-quality over-ear headphones. The person is sitting cross-legged on a comfortable rug, eyes gently closed, expressing profound peace. Warm, natural sunlight streams through a nearby window, creating soft shadows. The setting is clean and contemporary, utilizing a warm linen and soft cream color palette, blending modern wellness practices with a serene, uncluttered aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvEbWUG_KXMrbWQ2Ipfxpunw53dDjzS-Wj2VFBwFHfh7MMSBePg2M6qm4MaUANgY9DaM8vXKR0eu4VfmsNd2u1NHvQ7lw7Ra5JimJj_rjk9MEqs7uxfrub0EE713nznXnTezVcT6mn4qcspsvM069OsjKjW3iQoe5-bhbLFhMOHo4-sYrdtLsjEXO4t-2skjF1vDZ6DTiiqcX20PDnWXiWh109m_5S5juj2aDHAJGkRJnwY5yz6V8ltNF2PuuASaNfNAKGnPNaJtFt">
+</div>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 reveal active" style="transition-delay: 100ms;">
+<span class="font-label-sm text-label-sm text-antique-gold uppercase tracking-widest block mb-4">Cerita Kami</span>
+<h2 class="font-headline-display text-headline-display text-primary mb-6">Dengarkan,<br>Rasakan.</h2>
+<div class="space-y-4 text-on-surface-variant font-body-lg text-body-lg">
+<p class="">
+                        Di tengah hiruk-pikuk kehidupan modern, stres seringkali menjadi tamu tak diundang. Kami percaya bahwa pencegahan lebih baik daripada pengobatan.
+                    </p>
+<p class="">
+                        MoodPatch lahir dari penghormatan mendalam terhadap daya sembuh suara Gamelan. Kami mengkurasi dan merekam resonansi purba ini dengan teknologi audio terkini, menghadirkannya langsung ke ruang pribadi Anda.
+                    </p>
+<p class="">
+                        Lebih dari sekadar mendengarkan musik, ini adalah perjalanan meraba tekstur suara yang menenangkan detak jantung, menjernihkan pikiran, dan mengembalikan keselarasan jiwa Anda. 
+                    </p>
+</div>
+<a class="inline-block mt-8 pb-1 border-b-2 border-transparent font-label-md text-label-md text-primary hover:text-antique-gold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-antique-gold after:scale-x-100 hover:after:scale-x-100 after:origin-left transition-colors duration-300 hover:-translate-y-0.5 active:scale-95" href="#">
+                    Pelajari Filosofi Kami
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer (Generated from JSON) -->
+<footer class="bg-primary-container dark:bg-tertiary-container mt-auto relative z-10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-12">
+<!-- Logo Column -->
+<div class="col-span-1 sm:col-span-2 md:col-span-4 flex flex-col gap-6">
+<img loading="lazy" alt="MoodPatch Logo" class="w-full h-auto object-contain md:max-w-[480px] -ml-6 max-w-[200px] sm:max-w-[240px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI_Ic17KT6Uu90UlfE-eICdsNl0rIglO4XUYHem4swM80FNcl4WLzhDqCkJhUtB3AWI8t7Cj79-wUUy5ERLlwTVMUuAWU5d4rPqXec_M7c-wCDQ1AOdPb4d79htwSujYfWrm9wnGtfhaE1JUv_Vtag4s3rG47kycMxP6HxuZugOMhFV7mW0u8aND85fZMpg5kuFbLLWL-rkM5WmhCTSmnjfeEdcr_hWTMlfJf0E6CJurNLyFbHA0q389p07DOBxzQjOGKH1hv8im9L">
+<p class="font-body-md text-on-primary-container/80 max-w-xs ml-4">
+                    Harmonizing tradition with modern mindfulness through the ancient resonance of Javanese Gamelan.
+                </p>
+</div>
+<!-- Helpful Links -->
+<div class="md:col-span-2">
+<h4 class="font-headline-md text-on-primary-container mb-6 text-xl">Helpful Links</h4>
+<ul class="flex flex-col gap-3">
+<li class=""><a class="font-label-md text-on-primary-container/70 hover:text-antique-gold transition-colors" href="index.html">Beranda</a></li>
+<li class=""><a class="font-label-md text-on-primary-container/70 hover:text-antique-gold transition-colors" href="koleksi.html">Koleksi</a></li>
+<li class=""><a class="font-label-md text-on-primary-container/70 hover:text-antique-gold transition-colors" href="tentang-kami.html">Tentang Kami</a></li>
+</ul>
+</div>
+<!-- Quick Shop -->
+<div class="md:col-span-2">
+<h4 class="font-headline-md text-on-primary-container mb-6 text-xl">Quick Shop</h4>
+<ul class="flex flex-col gap-3">
+<li class=""><a class="font-label-md text-antique-gold hover:text-white transition-colors" href="#">Booster Shots</a></li>
+<li class=""><a class="font-label-md text-antique-gold hover:text-white transition-colors" href="#">Artisan Teas</a></li>
+<li class=""><a class="font-label-md text-antique-gold hover:text-white transition-colors" href="#">Signature Juice</a></li>
+<li class=""><a class="font-label-md text-antique-gold hover:text-white transition-colors" href="#">Healthy Desserts</a></li>
+</ul>
+</div>
+<!-- Contact/About Column -->
+<div class="col-span-1 sm:col-span-2 md:col-span-4">
+<h4 class="font-headline-md text-on-primary-container mb-6 text-xl ml-4">About Us</h4>
+<div class="flex flex-col gap-4 font-body-md text-on-primary-container/80">
+<p class="italic mb-2 ml-4">"The flavor is so smooth, and you can really taste the freshness."</p>
+<div class="flex flex-col gap-2">
+<p class="ml-4"><span class="font-bold">Address:</span> Jl. Kalimo Sodo, Tamanan, Kec. Banguntapan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55191</p>
+<p class="ml-4"><span class="font-bold">Email:</span>&nbsp;astronottim@gmail.com</p>
+<p class="ml-4"><span class="font-bold">Contact:</span> +62 878-8125-5924</p>
+<div class="ml-4 mt-2">
+<a href="https://www.instagram.com/moodpatch.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="inline-flex items-center gap-2 text-antique-gold hover:text-white transition-colors">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+<span>@moodpatch.id</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Copyright Bar -->
+<div class="mt-16 pt-8 border-t border-on-primary-container/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-on-primary-container/60 font-label-sm text-center sm:text-left">
+<p class="">© 2024 MoodPatch. Harmonizing tradition with modern mindfulness.</p>
+<div class="flex gap-6">
+<a class="hover:text-antique-gold" href="#">Privacy Policy</a>
+<a class="hover:text-antique-gold" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts for animations and header -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.getElementById('main-header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-md', 'bg-surface/95', 'backdrop-blur-sm');
+                    header.classList.remove('border-primary/10');
+                } else {
+                    header.classList.remove('shadow-md', 'bg-surface/95', 'backdrop-blur-sm');
+                    header.classList.add('border-primary/10');
+                }
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once animated
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Reviews Sidebar Toggle
+            const sidebar = document.getElementById('reviews-sidebar');
+            const toggleBtn = document.getElementById('reviews-toggle');
+            const closeBtn = document.getElementById('reviews-close');
+
+            if (sidebar && toggleBtn && closeBtn) {
+                const toggleSidebar = () => {
+                    sidebar.classList.toggle('-translate-x-full');
+                };
+                toggleBtn.addEventListener('click', toggleSidebar);
+                closeBtn.addEventListener('click', toggleSidebar);
+            }
+
+            // Ripple Effect Logic
+            function createRipple(event) {
+                const button = event.currentTarget;
+                const circle = document.createElement('span');
+                const diameter = Math.max(button.clientWidth, button.clientHeight);
+                const radius = diameter / 2;
+
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+                circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+                circle.classList.add('ripple');
+                
+                // Add dark ripple for lighter buttons
+                if (!button.classList.contains('bg-primary') && !button.classList.contains('bg-antique-gold')) {
+                    circle.classList.add('ripple-dark');
+                }
+
+                const existingRipple = button.querySelector('.ripple');
+                if (existingRipple) {
+                    existingRipple.remove();
+                }
+
+                button.appendChild(circle);
+            }
+
+            const rippleButtons = document.querySelectorAll('.ripple-btn');
+            rippleButtons.forEach(btn => {
+                btn.addEventListener('click', createRipple);
+            });
+        });
+    </script>
+
+
+
+
+<!-- UNIFIED MOBILE MENU -->
+<div class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-ink-charcoal/20 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
+<!-- Drawer Content -->
+<div class="absolute top-0 right-0 h-full bg-surface shadow-2xl flex flex-col p-8 transform translate-x-full transition-transform duration-300 ease-out w-[80%] max-w-[320px] border-l border-primary/10" id="mobile-drawer-content">
+<div class="flex justify-end mb-8">
+<img loading="lazy" alt="MoodPatch Logo" class="h-8 w-auto object-contain mr-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+<button class="p-2 text-clay-earth" id="close-menu-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col space-y-6">
+<a class="text-primary font-headline-md text-2xl border-b border-primary/5 py-4 relative group block hover:text-clay-earth" href="index.html">Beranda</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="koleksi.html">Koleksi</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="#">Mengapa MoodPatch</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="tentang-kami.html">Tentang Kami</a>
