@@ -134,15 +134,71 @@
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 12px 24px rgba(197, 160, 89, 0.4);
         }
+
+        /* Batik-inspired Background Pattern */
+        .batik-bg {
+            position: fixed;
+            inset: -40px; /* bleed edge for blur & animation */
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background-image: url('https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233562/bg-batik-koleksi_b60okh.jpg');
+            background-size: 400px auto;
+            background-repeat: repeat;
+            opacity: 0.15; /* subtle transparency */
+            filter: blur(1px); /* reduced blur as requested */
+            animation: patternDrift 90s linear infinite;
+        }
+
+        @keyframes patternDrift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(200px, 200px); }
+        }
+        @keyframes patternDrift2 {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-200px, 200px); }
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Product Highlight Animation */
+        @keyframes productHighlight {
+            0% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+                transform: scale(1);
+            }
+            40% {
+                box-shadow: 0 0 24px 6px rgba(197, 160, 89, 0.4), 0 0 48px 10px rgba(139, 94, 60, 0.12);
+                transform: scale(1.025);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+                transform: scale(1);
+            }
+        }
+        .product-highlight {
+            animation: productHighlight 1.2s ease-in-out;
+            border-color: rgba(197, 160, 89, 0.6) !important;
+            transition: border-color 0.5s ease;
+        }
+        .product-highlight-fade {
+            border-color: rgba(49, 23, 1, 0.15) !important;
+            transition: border-color 1s ease 2s;
+        }
         </style>
 </head>
 <body class="w-full max-w-[100vw] overflow-x-hidden bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- Batik Background Pattern -->
+<div class="batik-bg" aria-hidden="true"></div>
 <!-- TopNavBar -->
 <nav class="bg-background/95 backdrop-blur-md shadow-[0_4px_20px_rgba(74,44,17,0.06)] sticky top-0 z-50 w-full transition-all duration-300 border-b border-primary/5" id="main-header">
-<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-4 h-[60px] md:h-[80px] max-w-container-max mx-auto relative">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-3 h-[56px] md:h-[68px] max-w-container-max mx-auto relative">
 <!-- Brand Logo -->
-<a class="flex items-center flex-shrink-0 md:-ml-20" href="index.html">
-<img loading="lazy" alt="MoodPatch Logo" class="h-8 md:h-10 w-auto max-w-[150px] md:max-w-none object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+<a class="flex items-center flex-shrink-0" href="index.html" style="flex: 1;">
+<img loading="lazy" alt="MoodPatch Logo" class="-ml-3 md:-ml-8 h-6 md:h-7 w-auto object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
 </a>
 <!-- Navigation Links (Desktop) -->
 <div class="hidden items-center space-x-10 lg:flex absolute left-1/2 -translate-x-1/2">
@@ -156,9 +212,9 @@
       <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
 </div>
 <!-- Trailing Action -->
-<div class="flex items-center space-x-0 md:space-x-1 flex-shrink-0">
+<div class="flex items-center justify-end space-x-0 md:space-x-1 flex-shrink-0" style="flex: 1;">
 <button aria-label="Account" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
-<span class="material-symbols-outlined text-[22px] md:text-[24px]">person</span>
+<span class="material-symbols-outlined text-[26px] md:text-[28px]">person</span>
 </button>
 <button aria-label="Cart" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
 <span class="material-symbols-outlined text-[22px] md:text-[24px]">shopping_cart</span>
@@ -182,21 +238,21 @@
 <section>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
 <!-- Product Card 1 -->
-<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
-<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
-<img loading="lazy" alt="Bima Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/bima-series.jpg">
+<div id="bima" class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-row sm:flex-col h-full">
+<div class="w-[40%] sm:w-full aspect-[3/4] sm:aspect-[4/5] bg-surface-variant relative overflow-hidden flex-shrink-0">
+<img loading="lazy" alt="Bima Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783232761/bima-series_klngkg.jpg">
 </div>
-<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div class="p-4 sm:p-6 w-[60%] sm:w-full flex-grow flex flex-col justify-between space-y-2 sm:space-y-4">
 <div>
 <div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">Bima Series</h3>
+<h3 class="font-headline-md text-xl sm:text-headline-md text-primary">Bima Series</h3>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
 Focus - Teteg ing Tujuan
 </p>
 </div>
 <div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<span class="font-label-md text-label-md text-clay-earth">Rp 12.000</span>
 <button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
 <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
 </button>
@@ -204,21 +260,21 @@ Focus - Teteg ing Tujuan
 </div>
 </div>
 <!-- Product Card 2 -->
-<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
-<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
-<img loading="lazy" alt="Arjuna Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/arjuna-series.jpg">
+<div id="arjuna" class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-row sm:flex-col h-full">
+<div class="w-[40%] sm:w-full aspect-[3/4] sm:aspect-[4/5] bg-surface-variant relative overflow-hidden flex-shrink-0">
+<img loading="lazy" alt="Arjuna Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233037/arjuna-series_kma3ol.jpg">
 </div>
-<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div class="p-4 sm:p-6 w-[60%] sm:w-full flex-grow flex flex-col justify-between space-y-2 sm:space-y-4">
 <div>
 <div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">Arjuna Series</h3>
+<h3 class="font-headline-md text-xl sm:text-headline-md text-primary">Arjuna Series</h3>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
 Relax - Lega Ing Rasa
 </p>
 </div>
 <div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<span class="font-label-md text-label-md text-clay-earth">Rp 12.000</span>
 <button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
 <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
 </button>
@@ -226,21 +282,21 @@ Relax - Lega Ing Rasa
 </div>
 </div>
 <!-- Product Card 3 -->
-<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
-<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
-<img loading="lazy" alt="Semar Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/semar-series.jpg">
+<div id="semar" class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-row sm:flex-col h-full">
+<div class="w-[40%] sm:w-full aspect-[3/4] sm:aspect-[4/5] bg-surface-variant relative overflow-hidden flex-shrink-0">
+<img loading="lazy" alt="Semar Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233108/semar-series_d1rsol.jpg">
 </div>
-<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div class="p-4 sm:p-6 w-[60%] sm:w-full flex-grow flex flex-col justify-between space-y-2 sm:space-y-4">
 <div>
 <div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">Semar Series</h3>
+<h3 class="font-headline-md text-xl sm:text-headline-md text-primary">Semar Series</h3>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
 Calm - Tentrem ing Manah
 </p>
 </div>
 <div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<span class="font-label-md text-label-md text-clay-earth">Rp 12.000</span>
 <button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
 <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
 </button>
@@ -248,21 +304,21 @@ Calm - Tentrem ing Manah
 </div>
 </div>
 <!-- Product Card 4 -->
-<div class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-col h-full">
-<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
-<img loading="lazy" alt="Srikandi Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="images/srikandi-series.jpg">
+<div id="srikandi" class="group bg-warm-linen rounded-xl overflow-hidden shadow-sm hover:shadow-[0_4px_20px_rgba(74,44,17,0.08)] transition-all duration-300 border border-primary/15 flex flex-row sm:flex-col h-full">
+<div class="w-[40%] sm:w-full aspect-[3/4] sm:aspect-[4/5] bg-surface-variant relative overflow-hidden flex-shrink-0">
+<img loading="lazy" alt="Srikandi Series" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233139/srikandi-series_f9czof.jpg">
 </div>
-<div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+<div class="p-4 sm:p-6 w-[60%] sm:w-full flex-grow flex flex-col justify-between space-y-2 sm:space-y-4">
 <div>
 <div class="flex justify-between items-start mb-2">
-<h3 class="font-headline-md text-headline-md text-primary">Srikandi Series</h3>
+<h3 class="font-headline-md text-xl sm:text-headline-md text-primary">Srikandi Series</h3>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
 Energy - Semangat Tanpa Wates
 </p>
 </div>
 <div class="flex justify-between items-center pt-4 border-t border-primary/10">
-<span class="font-label-md text-label-md text-clay-earth">Rp 150.000</span>
+<span class="font-label-md text-label-md text-clay-earth">Rp 12.000</span>
 <button aria-label="Add to cart" class="text-primary hover:text-antique-gold transition-colors duration-300 flex items-center justify-center p-2 rounded-full border border-transparent hover:border-primary/15">
 <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">add_shopping_cart</span>
 </button>
@@ -328,15 +384,16 @@ Energy - Semangat Tanpa Wates
 
 
 
+
 <!-- UNIFIED MOBILE MENU -->
-<div class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
+<div class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
 <!-- Backdrop -->
-<div class="absolute inset-0 bg-ink-charcoal/20 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
+<div class="absolute inset-0 bg-ink-charcoal/40 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
 <!-- Drawer Content -->
 <div class="absolute top-0 right-0 h-full bg-surface shadow-2xl flex flex-col p-8 transform translate-x-full transition-transform duration-300 ease-out w-[80%] max-w-[320px] border-l border-primary/10" id="mobile-drawer-content">
 <div class="flex justify-end mb-8">
 <img loading="lazy" alt="MoodPatch Logo" class="h-8 w-auto object-contain mr-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
-<button class="p-2 text-clay-earth" id="close-menu-btn">
+<button class="p-2 text-clay-earth hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
@@ -345,3 +402,103 @@ Energy - Semangat Tanpa Wates
 <a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="koleksi.html">Koleksi</a>
 <a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="#">Mengapa MoodPatch</a>
 <a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="tentang-kami.html">Tentang Kami</a>
+</nav>
+</div>
+</div>
+<script>
+    // Robust Mobile Menu Logic
+    (function() {
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const drawer = document.getElementById('mobile-drawer-content');
+            const backdrop = document.getElementById('mobile-menu-backdrop');
+            const closeBtn = document.getElementById('close-menu-btn');
+
+            if (!btn || !menu || !drawer) return;
+
+            const openMenu = () => {
+                menu.classList.remove('hidden');
+                // Small delay to allow 'display: block' to apply before transitioning opacity/transform
+                setTimeout(() => {
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeMenu = () => {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+                // Wait for animation to finish before hiding
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            };
+
+            // Remove old listeners to prevent duplicates if script runs twice
+            btn.replaceWith(btn.cloneNode(true));
+            const newBtn = document.getElementById('mobile-menu-btn');
+            newBtn.addEventListener('click', openMenu);
+
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (backdrop) backdrop.addEventListener('click', closeMenu);
+        }
+
+        // Run immediately if DOM is already loaded, else wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
+    })();
+</script>
+<script>
+    // Product Highlight on Anchor Navigation
+    (function() {
+        function highlightTarget() {
+            const hash = window.location.hash;
+            if (!hash) return;
+
+            const targetId = hash.substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (!targetEl) return;
+
+            // Small delay to ensure page is fully rendered
+            setTimeout(() => {
+                // Scroll smoothly to the product with offset for the sticky nav
+                const navHeight = document.querySelector('nav')?.offsetHeight || 80;
+                const elTop = targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 24;
+                window.scrollTo({ top: elTop, behavior: 'smooth' });
+
+                // After scroll completes, trigger highlight animation
+                setTimeout(() => {
+                    targetEl.classList.add('product-highlight');
+
+                    // After animation ends, fade border back to normal
+                    targetEl.addEventListener('animationend', () => {
+                        targetEl.classList.remove('product-highlight');
+                        targetEl.classList.add('product-highlight-fade');
+                        setTimeout(() => {
+                            targetEl.classList.remove('product-highlight-fade');
+                        }, 3000);
+                    }, { once: true });
+                }, 600);
+            }, 150);
+        }
+
+        // Run on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', highlightTarget);
+        } else {
+            highlightTarget();
+        }
+
+        // Also listen for hash changes (e.g., same-page anchor clicks)
+        window.addEventListener('hashchange', highlightTarget);
+    })();
+</script>
+</body>
+
+</html>

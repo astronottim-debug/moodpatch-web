@@ -124,27 +124,15 @@
             width: 100%;
         }
 
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.open {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-    #mobile-menu.open { display: block !important; opacity: 1 !important; pointer-events: auto !important; } #mobile-menu.open #mobile-drawer-content { transform: translateX(0) !important; }</style>
+</style>
 </head>
 <body class="w-full max-w-[100vw] overflow-x-hidden bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
 <!-- Header -->
 <header class="bg-background/95 backdrop-blur-md shadow-[0_4px_20px_rgba(74,44,17,0.06)] sticky top-0 z-50 w-full transition-all duration-300 border-b border-primary/5" id="main-header">
-<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-4 h-[60px] md:h-[80px] max-w-container-max mx-auto relative">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-3 h-[56px] md:h-[68px] max-w-container-max mx-auto relative">
 <!-- Brand Logo -->
-<a class="flex items-center flex-shrink-0 md:-ml-20" href="index.html">
-<img loading="lazy" alt="MoodPatch Logo" class="h-8 md:h-10 w-auto max-w-[150px] md:max-w-none object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
+<a class="flex items-center flex-shrink-0" href="index.html" style="flex: 1;">
+<img loading="lazy" alt="MoodPatch Logo" class="-ml-3 md:-ml-8 h-6 md:h-7 w-auto object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
 </a>
 <!-- Navigation Links (Desktop) -->
 <div class="hidden items-center space-x-10 lg:flex absolute left-1/2 -translate-x-1/2">
@@ -158,9 +146,9 @@
       <span class="absolute bottom-0 left-0 w-full h-[2px] bg-primary transition-all duration-300"></span></a>
 </div>
 <!-- Trailing Action -->
-<div class="flex items-center space-x-0 md:space-x-1 flex-shrink-0">
+<div class="flex items-center justify-end space-x-0 md:space-x-1 flex-shrink-0" style="flex: 1;">
 <button aria-label="Account" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
-<span class="material-symbols-outlined text-[22px] md:text-[24px]">person</span>
+<span class="material-symbols-outlined text-[26px] md:text-[28px]">person</span>
 </button>
 <button aria-label="Cart" class="text-on-surface-variant hover:text-clay-earth transition-colors p-1 md:p-2 flex items-center justify-center">
 <span class="material-symbols-outlined text-[22px] md:text-[24px]">shopping_cart</span>
@@ -184,23 +172,29 @@
 </div>
 </section>
 <!-- Cerita Kami Section -->
-<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
-<div class="grid md:grid-cols-12 gap-gutter items-center">
-<div class="md:col-span-5 md:col-start-2 order-2 md:order-1 flex flex-col gap-6">
-<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest">Awal Mula</span>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Cerita Kami</h2>
-<p class="font-body-md text-body-md text-on-surface-variant text-justify">
-                        Berangkat dari kerinduan akan ketenangan di tengah hiruk-pikuk kehidupan modern, MoodPatch lahir sebagai jembatan antara kebijaksanaan masa lalu dan kebutuhan masa kini. Kami terinspirasi oleh filosofi "Alus" dalam budaya Jawa—sebuah konsep kehalusan budi, kesabaran, dan harmoni batin yang tercermin sempurna dalam alunan nada Gamelan.
+<section class="w-full relative py-16 md:py-24 overflow-hidden bg-surface -mt-[2px]">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-[url('https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233630/bg-batik-tentangkami_x1y6tu.jpg')] bg-repeat bg-[length:400px_auto] opacity-[0.12] blur-[1.5px] pointer-events-none z-0" style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 10rem); mask-image: linear-gradient(to bottom, transparent, black 10rem);"></div>
+    <!-- Content Container -->
+    <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+            <div class="grid grid-cols-12 gap-3 md:gap-gutter items-center">
+                <!-- Text Content -->
+                <div class="col-span-6 md:col-span-5 md:col-start-2 flex flex-col gap-4 md:gap-6">
+                    <span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest">Awal Mula</span>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Cerita Kami</h2>
+                    <p class="font-body-sm sm:font-body-md text-body-sm sm:text-body-md text-on-surface-variant text-justify">
+                        Berangkat dari kerinduan akan ketenangan di tengah hiruk-pikuk kehidupan modern, MoodPatch lahir sebagai jembatan antara kebijaksanaan masa lalu dan kebutuhan masa kini. Kami terinspirasi oleh filosofi "Alus" dalam budaya Jawa-sebuah konsep kehalusan budi, kesabaran, dan harmoni batin yang tercermin sempurna dalam alunan nada Gamelan.
                     </p>
-<p class="font-body-md text-body-md text-on-surface-variant text-justify">
+                    <p class="font-body-sm sm:font-body-md text-body-sm sm:text-body-md text-on-surface-variant text-justify">
                         Perjalanan kami dimulai di jantung kota Yogyakarta, tempat para empu (maestro) Gamelan menuangkan jiwa mereka ke dalam setiap instrumen perunggu. Kami merekam resonansi sakral tersebut, memadukannya dengan teknik <i>sound healing</i> modern untuk menciptakan lanskap audio yang menenangkan pikiran dan memulihkan jiwa.
                     </p>
-</div>
-<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 mb-8 md:mb-0 relative flex flex-col gap-4">
+                </div>
+                <!-- Image Collage -->
+                <div class="col-span-6 md:col-span-5 md:col-start-8 relative flex flex-col gap-2 md:gap-4">
 <!-- Slot Foto 1 -->
 <div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
 <div class="absolute inset-0 bg-surface-container-highest animate-pulse"></div>
-<img loading="lazy" alt="Tim MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/f_auto,q_auto/tim-moodpatch_ade4mx">
+<img loading="lazy" alt="Tim MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233470/tim-moodpatch_w5izp2.jpg">
 </div>
 <!-- Slot Foto 2 -->
 <div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
@@ -210,12 +204,13 @@
 <!-- Slot Foto 3 -->
 <div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
 <div class="absolute inset-0 bg-surface-container-highest animate-pulse"></div>
-<img loading="lazy" alt="Booth MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="images/booth-moodpatch.jpg">
+<img loading="lazy" alt="Booth MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233505/booth-moodpatch_wrenw2.jpg">
 </div>
 <!-- Decorative element -->
 <div class="absolute -bottom-6 -left-6 w-24 h-24 border border-outline-variant/30 rounded-full z-[-1]"></div>
 </div>
 </div>
+    </div>
 </section>
 <!-- Filosofi & Visi Section (Bento Grid Style) -->
 <section class="w-full bg-surface-container-low py-16 md:py-24">
@@ -395,15 +390,16 @@
 
 
 
+
 <!-- UNIFIED MOBILE MENU -->
-<div class="fixed inset-0 z-[60] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
+<div class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 pointer-events-none" id="mobile-menu">
 <!-- Backdrop -->
-<div class="absolute inset-0 bg-ink-charcoal/20 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
+<div class="absolute inset-0 bg-ink-charcoal/40 backdrop-blur-sm cursor-pointer" id="mobile-menu-backdrop"></div>
 <!-- Drawer Content -->
 <div class="absolute top-0 right-0 h-full bg-surface shadow-2xl flex flex-col p-8 transform translate-x-full transition-transform duration-300 ease-out w-[80%] max-w-[320px] border-l border-primary/10" id="mobile-drawer-content">
 <div class="flex justify-end mb-8">
 <img loading="lazy" alt="MoodPatch Logo" class="h-8 w-auto object-contain mr-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
-<button class="p-2 text-clay-earth" id="close-menu-btn">
+<button class="p-2 text-clay-earth hover:bg-surface-variant rounded-full transition-colors" id="close-menu-btn">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
@@ -416,45 +412,54 @@
 </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const drawerContent = document.getElementById('mobile-drawer-content');
-        const backdrop = document.getElementById('mobile-menu-backdrop');
+    // Robust Mobile Menu Logic
+    (function() {
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const drawer = document.getElementById('mobile-drawer-content');
+            const backdrop = document.getElementById('mobile-menu-backdrop');
+            const closeBtn = document.getElementById('close-menu-btn');
 
-        if (mobileMenuBtn && closeMenuBtn && mobileMenu && drawerContent) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                // Force reflow
-                void mobileMenu.offsetWidth;
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('flex', 'opacity-100');
-                
-                drawerContent.classList.remove('translate-x-full');
-                drawerContent.classList.add('translate-x-0');
-                
+            if (!btn || !menu || !drawer) return;
+
+            const openMenu = () => {
+                menu.classList.remove('hidden');
+                // Small delay to allow 'display: block' to apply before transitioning opacity/transform
+                setTimeout(() => {
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
                 document.body.style.overflow = 'hidden';
-            });
+            };
 
             const closeMenu = () => {
-                drawerContent.classList.add('translate-x-full');
-                drawerContent.classList.remove('translate-x-0');
-                
-                mobileMenu.classList.remove('opacity-100');
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-x-full');
                 document.body.style.overflow = '';
-                
+                // Wait for animation to finish before hiding
                 setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
+                    menu.classList.add('hidden');
                 }, 300);
             };
 
-            closeMenuBtn.addEventListener('click', closeMenu);
+            // Remove old listeners to prevent duplicates if script runs twice
+            btn.replaceWith(btn.cloneNode(true));
+            const newBtn = document.getElementById('mobile-menu-btn');
+            newBtn.addEventListener('click', openMenu);
+
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
             if (backdrop) backdrop.addEventListener('click', closeMenu);
         }
-    });
+
+        // Run immediately if DOM is already loaded, else wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
+    })();
 </script>
 </body>
+
 </html>
