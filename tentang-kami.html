@@ -135,18 +135,18 @@
 <header class="bg-background/95 backdrop-blur-md shadow-[0_4px_20px_rgba(74,44,17,0.06)] sticky top-0 z-50 w-full transition-all duration-300 border-b border-primary/5" id="main-header">
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-2 md:py-3 h-[56px] md:h-[68px] max-w-container-max mx-auto relative">
 <!-- Brand Logo -->
-<a class="flex items-center flex-shrink-0" href="index.html" style="flex: 1;">
+<a class="flex items-center flex-shrink-0" href="/" style="flex: 1;">
 <img loading="lazy" alt="MoodPatch Logo" class="-ml-3 md:-ml-8 h-6 md:h-7 w-auto object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HVcMbXUuH1vO6cyu8U7p2SoFq9EDEhF29wERABi7q2JygRp1NulUhYgICEYGUaCfuqEYJLDXkgbq79kgOFZjP68CASfY80xDxrTS_YHm5FwaboW1MTCTjj4K3J_R66vYqN06NxSCGEckM4ugNKtMZ8ul0oWI_tzL9qUrj-RP_asNVPLoChDQEtT32uaNh4OCz1P6wBO1Q-fCfD4iJaQt2MpqkMzdAaBMOnq9KNDyl0fDaFzWVIAAT1u3bRVgvs1hcFxOhbr5Tl1i">
 </a>
 <!-- Navigation Links (Desktop) -->
 <div class="hidden items-center space-x-10 lg:flex absolute left-1/2 -translate-x-1/2">
-<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="index.html">Beranda
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="/">Beranda
       <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
-<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="koleksi.html">Koleksi
+<a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="/koleksi">Koleksi
       <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
 <a class="text-on-surface-variant relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 hover:text-clay-earth transition-colors duration-300 group" href="#">Mengapa MoodPatch
       <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span></a>
-<a class="relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 group text-primary" href="tentang-kami.html">Tentang Kami
+<a class="relative text-lg font-bold font-['Manrope'] tracking-normal pb-1 group text-primary" href="/tentang-kami">Tentang Kami
       <span class="absolute bottom-0 left-0 w-full h-[2px] bg-primary transition-all duration-300"></span></a>
 </div>
 <!-- Trailing Action -->
@@ -181,38 +181,54 @@
     <div class="absolute inset-0 bg-[url('https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233630/bg-batik-tentangkami_x1y6tu.jpg')] bg-repeat bg-[length:400px_auto] opacity-[0.12] blur-[1.5px] pointer-events-none z-0" style="-webkit-mask-image: linear-gradient(to bottom, transparent, black 10rem); mask-image: linear-gradient(to bottom, transparent, black 10rem);"></div>
     <!-- Content Container -->
     <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-            <div class="grid grid-cols-12 gap-3 md:gap-gutter items-center">
+            <div class="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-center">
                 <!-- Text Content -->
-                <div class="col-span-6 md:col-span-5 md:col-start-2 flex flex-col gap-4 md:gap-6">
+                <div class="w-full md:col-span-5 md:col-start-2 flex flex-col gap-5 md:gap-6">
                     <span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest">Awal Mula</span>
                     <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Cerita Kami</h2>
-                    <p class="font-body-sm sm:font-body-md text-body-sm sm:text-body-md text-on-surface-variant text-justify">
+                    <p class="font-body-md text-body-md text-on-surface-variant text-justify leading-relaxed">
                         Berangkat dari kerinduan akan ketenangan di tengah hiruk-pikuk kehidupan modern, MoodPatch lahir sebagai jembatan antara kebijaksanaan masa lalu dan kebutuhan masa kini. Kami terinspirasi oleh filosofi "Alus" dalam budaya Jawa-sebuah konsep kehalusan budi, kesabaran, dan harmoni batin yang tercermin sempurna dalam alunan nada Gamelan.
                     </p>
-                    <p class="font-body-sm sm:font-body-md text-body-sm sm:text-body-md text-on-surface-variant text-justify">
+                    <p class="font-body-md text-body-md text-on-surface-variant text-justify leading-relaxed">
                         Perjalanan kami dimulai di jantung kota Yogyakarta, tempat para empu (maestro) Gamelan menuangkan jiwa mereka ke dalam setiap instrumen perunggu. Kami merekam resonansi sakral tersebut, memadukannya dengan teknik <i>sound healing</i> modern untuk menciptakan lanskap audio yang menenangkan pikiran dan memulihkan jiwa.
                     </p>
                 </div>
                 <!-- Image Collage -->
-                <div class="col-span-6 md:col-span-5 md:col-start-8 relative flex flex-col gap-2 md:gap-4">
-<!-- Slot Foto 1 -->
-<div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
-<div class="absolute inset-0 bg-surface-container-highest animate-pulse"></div>
-<img loading="lazy" alt="Tim MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233470/tim-moodpatch_w5izp2.jpg">
-</div>
-<!-- Slot Foto 2 -->
-<div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
-<div class="absolute inset-0 bg-surface-container-highest animate-pulse"></div>
-<img loading="lazy" alt="Foto Gamelan 2" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbdKrPLuLkbgp_8nCer99osuQfknOJwq4L3qJ6BdbfH8Ynwimsh8ZWpWfHW5KgYkaF2WghnPnoh7fXi9M5WC6aKMq3vILoM6nYqbxXbRm3IhNoXhi5euPfHiJ1_0SBNAcXhrRx2U_aWTNouE4Gcsa4HTJm8Tt0LwA6-NOGpHL9_TdFXzOoar57a9OQh1ysecVVt2pm-ZWUQhVSuelOlkXMLUTiZ4g1W6GhmehelBQ0czgh7mm1GjauH7hiUyrkCyymcth3TUPxhdcg">
-</div>
-<!-- Slot Foto 3 -->
-<div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(74,44,17,0.08)] relative group cursor-pointer">
-<div class="absolute inset-0 bg-surface-container-highest animate-pulse"></div>
-<img loading="lazy" alt="Booth MoodPatch" class="absolute inset-0 w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233505/booth-moodpatch_wrenw2.jpg">
-</div>
-<!-- Decorative element -->
-<div class="absolute -bottom-6 -left-6 w-24 h-24 border border-outline-variant/30 rounded-full z-[-1]"></div>
-</div>
+                <div class="w-full md:col-span-5 md:col-start-8 relative flex flex-col gap-5 md:gap-4">
+                    <!-- Slot Foto 1 -->
+                    <div class="relative p-[3px] rounded-xl bg-gradient-to-br from-[#C5A059] via-[#8B6914] to-[#C5A059] shadow-[0_6px_24px_rgba(74,44,17,0.15)] group cursor-pointer hover:shadow-[0_8px_32px_rgba(197,160,89,0.25)] transition-shadow duration-500">
+                        <div class="aspect-[16/9] w-full rounded-[10px] overflow-hidden relative bg-surface-container-highest">
+                            <img loading="lazy" alt="Tim MoodPatch" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233470/tim-moodpatch_w5izp2.jpg">
+                        </div>
+                        <!-- Corner accents -->
+                        <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-[#C5A059]/60 rounded-tl-xl"></div>
+                        <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-[#C5A059]/60 rounded-tr-xl"></div>
+                        <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-[#C5A059]/60 rounded-bl-xl"></div>
+                        <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#C5A059]/60 rounded-br-xl"></div>
+                    </div>
+                    <!-- Slot Foto 2 -->
+                    <div class="relative p-[3px] rounded-xl bg-gradient-to-br from-[#C5A059] via-[#8B6914] to-[#C5A059] shadow-[0_6px_24px_rgba(74,44,17,0.15)] group cursor-pointer hover:shadow-[0_8px_32px_rgba(197,160,89,0.25)] transition-shadow duration-500">
+                        <div class="aspect-[16/9] w-full rounded-[10px] overflow-hidden relative bg-surface-container-highest">
+                            <img loading="lazy" alt="Foto Gamelan 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbdKrPLuLkbgp_8nCer99osuQfknOJwq4L3qJ6BdbfH8Ynwimsh8ZWpWfHW5KgYkaF2WghnPnoh7fXi9M5WC6aKMq3vILoM6nYqbxXbRm3IhNoXhi5euPfHiJ1_0SBNAcXhrRx2U_aWTNouE4Gcsa4HTJm8Tt0LwA6-NOGpHL9_TdFXzOoar57a9OQh1ysecVVt2pm-ZWUQhVSuelOlkXMLUTiZ4g1W6GhmehelBQ0czgh7mm1GjauH7hiUyrkCyymcth3TUPxhdcg">
+                        </div>
+                        <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-[#C5A059]/60 rounded-tl-xl"></div>
+                        <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-[#C5A059]/60 rounded-tr-xl"></div>
+                        <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-[#C5A059]/60 rounded-bl-xl"></div>
+                        <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#C5A059]/60 rounded-br-xl"></div>
+                    </div>
+                    <!-- Slot Foto 3 -->
+                    <div class="relative p-[3px] rounded-xl bg-gradient-to-br from-[#C5A059] via-[#8B6914] to-[#C5A059] shadow-[0_6px_24px_rgba(74,44,17,0.15)] group cursor-pointer hover:shadow-[0_8px_32px_rgba(197,160,89,0.25)] transition-shadow duration-500">
+                        <div class="aspect-[16/9] w-full rounded-[10px] overflow-hidden relative bg-surface-container-highest">
+                            <img loading="lazy" alt="Booth MoodPatch" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://res.cloudinary.com/uvrpnw8s/image/upload/v1783233505/booth-moodpatch_wrenw2.jpg">
+                        </div>
+                        <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-[#C5A059]/60 rounded-tl-xl"></div>
+                        <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-[#C5A059]/60 rounded-tr-xl"></div>
+                        <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-[#C5A059]/60 rounded-bl-xl"></div>
+                        <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#C5A059]/60 rounded-br-xl"></div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 border border-outline-variant/30 rounded-full z-[-1]"></div>
+                </div>
 </div>
     </div>
 </section>
@@ -376,10 +392,10 @@
 </div>
 <div class="flex flex-col space-y-2">
 <h4 class="font-label-md text-label-md text-primary mb-2 uppercase tracking-widest">Tautan</h4>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="index.html">Home</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="koleksi.html">Collections</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="/">Home</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="/koleksi">Collections</a>
 <a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="#">Why MoodPatch</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="tentang-kami.html">Our Story</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-antique-gold transition-colors opacity-80 hover:opacity-100" href="/tentang-kami">Our Story</a>
 </div>
 <div class="w-full md:w-auto pt-8 md:pt-0 mt-8 md:mt-0 border-t border-primary/10 md:border-none flex items-end">
 <span class="font-body-md text-body-md text-on-surface-variant">© 2024 MoodPatch. Alus, Sabar, Tentrem.</span>
@@ -408,10 +424,10 @@
 </button>
 </div>
 <nav class="flex flex-col space-y-6">
-<a class="text-primary font-headline-md text-2xl border-b border-primary/5 py-4 relative group block hover:text-clay-earth" href="index.html">Beranda</a>
-<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="koleksi.html">Koleksi</a>
+<a class="text-primary font-headline-md text-2xl border-b border-primary/5 py-4 relative group block hover:text-clay-earth" href="/">Beranda</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="/koleksi">Koleksi</a>
 <a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="#">Mengapa MoodPatch</a>
-<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="tentang-kami.html">Tentang Kami</a>
+<a class="text-primary font-headline-md text-2xl hover:text-clay-earth border-b border-primary/5 py-4 relative group block" href="/tentang-kami">Tentang Kami</a>
 </nav>
 </div>
 </div>
