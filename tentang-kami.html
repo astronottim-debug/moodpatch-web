@@ -130,6 +130,29 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/uvrpnw8s/image/upload/f_auto,q_auto,w_1200,c_limit/v1783237391/favicon-16x16_mhv8zl.png">
     <link rel="manifest" href="https://res.cloudinary.com/uvrpnw8s/raw/upload/v1783237393/site_f94lwr.webmanifest">
     <style>.material-symbols-outlined { font-display: block; }</style>
+
+<style>
+  /* Prevent FOUT for Material Symbols */
+  html:not(.fonts-loaded) .material-symbols-outlined {
+    opacity: 0 !important;
+    visibility: hidden;
+  }
+  .material-symbols-outlined {
+    transition: opacity 0.2s ease-in;
+  }
+</style>
+<script>
+  // Wait until fonts are loaded before showing icons
+  if ('fonts' in document) {
+    document.fonts.ready.then(function() {
+      document.documentElement.classList.add('fonts-loaded');
+    });
+  } else {
+    // Fallback for older browsers
+    document.documentElement.classList.add('fonts-loaded');
+  }
+</script>
+
 </head>
 <body class="w-full max-w-[100vw] overflow-x-hidden bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
 <!-- Header -->
