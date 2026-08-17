@@ -598,5 +598,26 @@
         closeMenuBtn.addEventListener('click', closeMobileMenu);
         mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
     </script>
+<!-- Scroll to Top Button -->
+<button id="scroll-to-top" class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] bg-primary text-on-primary w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl hover:scale-110 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none" aria-label="Scroll ke atas">
+    <span class="material-symbols-outlined text-xl sm:text-2xl">arrow_upward</span>
+</button>
+<script>
+    (function() {
+        const scrollBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>
 </body>
 </html>
